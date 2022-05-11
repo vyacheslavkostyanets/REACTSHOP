@@ -4,16 +4,21 @@ import SearchIcon from "@mui/icons-material/Search";
 import Badge from "@mui/material/Badge";
 import logo from "../assets/images/logo.png";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
     <div className="nav-bar">
       <div className="nav-bar__left">
         <div className="nav-bar__left__menu">
-          <MenuRoundedIcon className="nav-bar__left__menu__icon" />
+          <button>
+            <MenuRoundedIcon className="nav-bar__left__menu__icon" />
+          </button>
         </div>
         <div className="nav-bar__left__logo">
-          <img src={logo} alt="" />
+          <Link to="/">
+            <img src={logo} alt="" />
+          </Link>
         </div>
       </div>
       <div className="nav-bar__search">
@@ -23,9 +28,11 @@ const NavBar = () => {
         </button>
       </div>
       <div className="nav-bar__bag">
-        <Badge badgeContent={4} color="success">
-          <ShoppingCartOutlinedIcon className="nav-bar__bag__icon" />
-        </Badge>
+        <Link to="/cart">
+          <Badge badgeContent={4} color="success">
+            <ShoppingCartOutlinedIcon className="nav-bar__bag__icon" />
+          </Badge>
+        </Link>
       </div>
     </div>
   );

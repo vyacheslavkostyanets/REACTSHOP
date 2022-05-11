@@ -12,10 +12,6 @@
 
 html {
 	font-size: 10px;
-
-	@include mobile {
-		font-size: 1em;
-	}
 }
 
 body {
@@ -40,9 +36,8 @@ img {
 	max-width: 100%;
 }
 
-.container {
-	@include mobile{
-		font-size: 0.7em;
-	}
+button {
+	border: none;
+	cursor: pointer;
 }
 

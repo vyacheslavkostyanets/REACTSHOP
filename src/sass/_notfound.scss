@@ -1,0 +1,5 @@
+.not-found {
+	height: calc(100vh - 10em);
+	@include flex(center, center);
+	font-size: 2em;
+}

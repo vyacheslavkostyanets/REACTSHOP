@@ -9,6 +9,7 @@ import {
 import Cart from './Pages/Cart'
 import Home from './Pages/Home';
 import NavBar from './components/NavBar';
+import NotFound from './Pages/NotFound';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
 
         <Route path="/" element={<Home />} />
         <Route path="cart" element={<Cart />} />
-
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

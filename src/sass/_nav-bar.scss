@@ -20,11 +20,14 @@
 	}
 	&__search {
 		flex: 4;
+		border: 1px solid #977052d4;
 			@include flex(center, space-between);
 			&__input {
 				flex-basis: 90%;
-				height: $search-height;
-				
+				padding: 0.25em 0 .25em 0.5em ;
+				font-size: 1.8em;
+				border: none;
+				outline: none;
 			}
 			&__button-icon {
 				flex-basis: 10%;
