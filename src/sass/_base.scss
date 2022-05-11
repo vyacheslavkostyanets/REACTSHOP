@@ -11,15 +11,16 @@
 }
 
 html {
-	font-size: 13px;
+	font-size: 10px;
 
 	@include mobile {
-		font-size: 11px;
+		font-size: 1em;
 	}
 }
 
 body {
 	font-family: "Roboto", sans-serif;
+	font-size: 1.4em;
 }
 
 ul {
@@ -45,6 +46,3 @@ img {
 	}
 }
 
-.cart {
-	color: black;
-}

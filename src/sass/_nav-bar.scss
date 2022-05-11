@@ -1,0 +1,48 @@
+.nav-bar {
+	background-color: #f2f2f2;
+	height: $main-height;
+	@include flex(center, space-between);
+	flex: 6;
+	&__left {
+		flex: 3;
+		padding: $nav-padding;
+		@include flex(center, space-between);
+		&__menu {
+			flex: 1;
+			&__icon {
+				font-size: 2.5em!important;
+			}
+		}
+		&__logo{
+			flex: 4;
+			width: 100%;
+		}
+	}
+	&__search {
+		flex: 4;
+			@include flex(center, space-between);
+			&__input {
+				flex-basis: 90%;
+				height: $search-height;
+				
+			}
+			&__button-icon {
+				flex-basis: 10%;
+				height: $search-height;
+			}
+			&__icon {
+				font-size: $icon-size;
+				color: #2E7D32;
+			}
+	}
+	&__bag {
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			padding: $nav-padding;
+			flex: 3;
+			&__icon {
+				font-size: $icon-size;
+			}
+		}
+}
