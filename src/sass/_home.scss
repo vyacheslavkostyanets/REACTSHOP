@@ -1,0 +1,15 @@
+.main {
+	@include flex(flex-start, space-between);
+	&__filter {
+		width: 200px;	
+		}
+	
+}
+
+.product {
+	@include flex(flex-start, space-between);
+	flex-wrap: wrap;
+	&__item {
+		width: 20%;
+	}
+}
