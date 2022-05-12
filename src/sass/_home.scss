@@ -1,15 +1,20 @@
 .main {
+	margin-top: 1em;
+	padding: 0 1em;
 	@include flex(flex-start, space-between);
-	&__filter {
-		width: 200px;	
-		}
-	
+	&__filter__items {
+		width: 22em;
+	}
 }
 
 .product {
-	@include flex(flex-start, space-between);
+	@include flex(baseline, flex-start);
 	flex-wrap: wrap;
+
 	&__item {
 		width: 20%;
+	}
+	&__image {
+		max-height: 180px;
 	}
 }

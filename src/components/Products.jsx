@@ -6,11 +6,7 @@ const Products = () => {
   return (
     <div className="product">
       {data.map((item) => {
-        return (
-          <div className="product__item">
-            <Product {...item} key={item.id} />
-          </div>
-        );
+        return <Product {...item} key={item.id} />;
       })}
     </div>
   );
