@@ -1,0 +1,29 @@
+.slider {
+	position: relative;
+	img {
+		width: 100%;
+		background-color: red;
+	}
+	&__right, &__left {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+		background-color: rgba(145, 21, 134, 0.265);
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 2;
+		width: 50px!important;
+		height: 50px !important;
+		cursor: pointer;
+	}
+	&__right{
+		right: 3em;
+
+	}
+	&__left{
+		left: 3em;
+	}
+}
