@@ -1,0 +1,55 @@
+.product {
+
+	@include flex(baseline, flex-start);
+		flex-wrap: wrap;
+		border-top: 1px solid #e9e9e9;
+		border-bottom: 1px solid #e9e9e9;
+		border-left: 1px solid #e9e9e9;
+	&__item {
+		position: relative;
+		border-bottom: 1px solid #e9e9e9;
+			border-right: 1px solid #e9e9e9;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: center;
+		width: 20%;
+		align-self: stretch;
+	&__link {
+			font-size: $title-text-size;
+			z-index: 1;
+		}
+	&__picture{
+			z-index: 2;
+		}
+		&__price {
+			font-size: $price-text-size;
+			z-index: 2;
+		}
+				&:hover>.product__icons{
+					background-color: rgba(150, 176, 221, 0.1);
+					transition: all 0.7s ease;
+				}
+	}
+
+	&__image {
+		z-index: 1;
+		max-height: 180px;
+	}
+		&__icons {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			justify-content: flex-start;
+			padding-left: 0.5em;
+			padding-top: 0.5em;
+		}
+		&__icon {
+			font-size: $product-size-icon;
+			cursor: pointer;
+		}
+
+}

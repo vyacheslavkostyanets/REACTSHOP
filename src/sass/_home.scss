@@ -3,18 +3,7 @@
 	padding: 0 1em;
 	@include flex(flex-start, space-between);
 	&__filter__items {
-		width: 22em;
+		width: $filter-items-width;
 	}
 }
 
-.product {
-	@include flex(baseline, flex-start);
-	flex-wrap: wrap;
-
-	&__item {
-		width: 20%;
-	}
-	&__image {
-		max-height: 180px;
-	}
-}

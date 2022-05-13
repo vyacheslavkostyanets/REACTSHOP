@@ -1,7 +1,7 @@
 export const data = [
 	{
 		id: 1,
-		name: 'Oil',
+		name: 'Oil Oil for body 200ml Oil for body 200ml Oil for body 200ml',
 		desc: 'Oil for body 200ml',
 		price: '$20',
 		image: 'https://i.ibb.co/sHs7XQ7/images.jpg'
@@ -61,7 +61,7 @@ export const data = [
 		image: 'https://i.ibb.co/FWpqyFP/5555555555555.webp'
 	}, {
 		id: 10,
-		name: 'Oil',
+		name: 'Oil for body 200ml Oil for body 200mlOil',
 		desc: 'Oil for body 200ml',
 		price: '$20',
 		image: 'https://i.ibb.co/HtYdnb6/444444444444.jpg'
