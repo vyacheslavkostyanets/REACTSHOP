@@ -1,7 +1,14 @@
 import { Checkbox } from "@mui/material";
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { ControlledCheckbox } from "./ControlledCheckbox";
 
 const Filters = () => {
+  const [checked, setChecked] = React.useState(true);
+
+  const handleChange = (event) => {
+    setChecked(!checked);
+  };
+
   return (
     <div className="main-filter">
       <div className="filter__wrapper">
@@ -54,9 +61,9 @@ const Filters = () => {
               3 main-filter__linkmain-filter__link main-filter__link
             </a>
           </li>
-          <li className="main-filter__item">
-            <Checkbox />
-            <div>4</div>
+          <li className="main-filter__item" onClick={handleChange}>
+            <ControlledCheckbox checked={checked} />
+            <span>redd</span>
           </li>
         </ul>
       </div>

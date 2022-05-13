@@ -1,8 +1,7 @@
 import React from "react";
 import { Product } from "./Product";
-import { data } from "./Data";
 
-const Products = () => {
+const Products = ({ data }) => {
   return (
     <div className="product">
       {data.map((item) => {
