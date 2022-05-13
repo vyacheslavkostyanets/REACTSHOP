@@ -1,0 +1,23 @@
+.main-filter {
+
+	&__items {
+		width: $filter-items-width;
+	}
+	&__item {
+		margin-bottom: 0.3em;
+	}
+	&__header {
+			margin-bottom: 0.8em;
+	}
+	&__item {
+			display: flex;
+			align-items: center;
+			background-color: rgb(198 219 223 / 10%);
+			border: 1px solid #7772fa59;
+			width: 90%;
+	}
+}
+
+.filter__wrapper {
+	margin-bottom: 2em;
+}
