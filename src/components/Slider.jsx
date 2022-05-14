@@ -1,18 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import ArrowLeftOutlinedIcon from "@mui/icons-material/ArrowLeftOutlined";
 import ArrowRightOutlinedIcon from "@mui/icons-material/ArrowRightOutlined";
 
 const dataSlider = [
-  "https://i.ibb.co/MM7F8Xz/Slider2.jpg",
-  "https://i.ibb.co/VqT0spb/Slider1.png",
-  "https://i.ibb.co/k6SD30F/Slider3.jpg",
+  {
+    name: "Lorem ipsum dolor sit amet consectetur ",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque qui amet molestiae repudiandae nihil fugit nemo laudantium nam animi doloribus ex placeat repellendus rerum illum!",
+    img: "https://i.ibb.co/MM7F8Xz/Slider2.jpg",
+  },
+  {
+    name: "Lorem ipsum dolor sit amet 2",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque qui amet molestiae repudiandae nihil fugit ",
+    img: "https://i.ibb.co/VqT0spb/Slider1.png",
+  },
+  {
+    name: "Lorem ipsum dolor sit amet 3",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque qui amet molestiae repudiandae nihil fugit ",
+    img: "https://i.ibb.co/k6SD30F/Slider3.jpg",
+  },
 ];
 
 export const Slider = () => {
   const [slider, setSliderState] = useState(0);
+
   const handleSlider = (side) => {
     const sliders = dataSlider.length - 1;
-
     if (side === "left") {
       slider - 1 >= 0 ? setSliderState(slider - 1) : setSliderState(sliders);
     } else {
@@ -20,6 +35,16 @@ export const Slider = () => {
       numberSlide > sliders ? setSliderState(0) : setSliderState(numberSlide);
     }
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleSlider("right");
+      console.log("1");
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, [slider]);
+
   return (
     <div className="wrapper">
       <div className="slider">
@@ -27,7 +52,17 @@ export const Slider = () => {
           className="slider__left"
           onClick={() => handleSlider("left")}
         />
-        <img src={dataSlider[slider]} alt="Slider" />
+        <img src={dataSlider[slider].img} alt="Slider" />
+        <div className="slider__description">
+          <h2 className="slider__description__header">
+            {dataSlider[slider].name}
+          </h2>
+          <br />
+          <p className="slider__description__short">
+            {dataSlider[slider].description}
+          </p>
+        </div>
+
         <ArrowRightOutlinedIcon
           className="slider__right"
           onClick={() => handleSlider("right")}
