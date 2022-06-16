@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import Badge from "@mui/material/Badge";
@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { inputText } from "../features/searchSlice";
 import { changeInputValueData } from "../features/searchSlice";
-import { makeFilter } from "../features/filtersSlice";
+import { makeInputFilter } from "../features/productsSlice";
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ const NavBar = () => {
   const textInput = useSelector(inputText);
   const handleChangeInput = (text) => {
     dispatch(changeInputValueData(text));
-    dispatch(makeFilter(10));
+    dispatch(makeInputFilter(text));
   };
 
   return (

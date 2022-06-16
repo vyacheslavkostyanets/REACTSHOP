@@ -1,5 +1,5 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios'
+import { createSlice } from '@reduxjs/toolkit';
+
 
 const initialState = {
 	dataServer: [
@@ -201,6 +201,8 @@ const initialState = {
 	]
 }
 
+
+
 // export const productFetch = createAsyncThunk("products/productFetch",
 // 	async () => {
 // 		const response = await axios.get("http://localhost:7000/products");
@@ -213,8 +215,14 @@ const productsSlice = createSlice({
 	name: 'products',
 	initialState,
 	reducers: {
-		increment: (state, action) => {
-			state.dataServer[0].price = 10000
+		makeInputFilter: (state, action) => {
+			const lowerCaseValue = action.payload.toString().toLowerCase()
+			state.dataServer = state.dataServer.filter(item => {
+				return Object.keys(item).some(key => {
+
+					return item[key].toString().toLowerCase().includes(lowerCaseValue)
+				})
+			})
 		},
 	},
 	// extraReducers: {
@@ -232,4 +240,4 @@ const productsSlice = createSlice({
 })
 
 export default productsSlice.reducer
-export const { increment } = productsSlice.actions
+export const { makeInputFilter } = productsSlice.actions
