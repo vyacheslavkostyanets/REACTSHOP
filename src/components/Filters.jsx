@@ -1,19 +1,31 @@
 import { Checkbox } from "@mui/material";
 import React, { useEffect, useRef } from "react";
-import { ControlledCheckbox } from "./ControlledCheckbox";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const Filters = () => {
+  const dispatch = useDispatch();
+  const filtersDataServer = useSelector((state) => state.filters.filtersServer);
+  console.log(filtersDataServer, "filtersDataServer");
   const [checked, setChecked] = React.useState(true);
 
-  const handleChange = (event) => {
-    setChecked(!checked);
+  const handleChange = (value) => {
+    console.log(value);
   };
 
   return (
     <div className="main-filter">
       <div className="filter__wrapper">
         <h2 className="main-filter__header">Filter by color</h2>
+
         <ul className="main-filter__items">
+          <button onClick={() => dispatch({ type: "searchValue" })}>
+            dispatch
+          </button>
+          {filtersDataServer.map((item) => {
+            return <li key={item.id}>{item.type}</li>;
+          })}
+
           <li className="main-filter__item">
             <Checkbox />
             <a href="" className="main-filter__link">
@@ -38,11 +50,7 @@ const Filters = () => {
               pink
             </a>
           </li>
-        </ul>
-      </div>
-      <div className="filter__wrapper">
-        <h2 className="main-filter__header">Filter by type</h2>
-        <ul className="main-filter__items">
+          <h2 className="main-filter__header">Filter by type</h2>
           <li className="main-filter__item">
             <Checkbox />
             <a href="" className="main-filter__link">
@@ -54,16 +62,6 @@ const Filters = () => {
             <a href="" className="main-filter__link">
               2 main-filter__link main-filter__link main-filter__link
             </a>
-          </li>
-          <li className="main-filter__item">
-            <Checkbox />
-            <a href="" className="main-filter__link">
-              3 main-filter__linkmain-filter__link main-filter__link
-            </a>
-          </li>
-          <li className="main-filter__item" onClick={handleChange}>
-            <ControlledCheckbox checked={checked} />
-            <span>redd</span>
           </li>
         </ul>
       </div>

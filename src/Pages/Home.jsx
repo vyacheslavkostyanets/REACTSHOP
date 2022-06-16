@@ -5,8 +5,7 @@ import { useSelector } from "react-redux";
 import { Slider } from "../components/Slider";
 
 const Home = () => {
-  const dataServer = useSelector((state) => state.products.dataServer);
-  console.log(dataServer, "dataServer");
+  const productsDataServer = useSelector((state) => state.products.dataServer);
   return (
     <div className="wrapper">
       <div className="slider-home">
@@ -17,7 +16,7 @@ const Home = () => {
           <Filters />
         </div>
         <div className="main__products">
-          <Products data={dataServer} />
+          <Products data={productsDataServer} />
         </div>
       </div>
     </div>

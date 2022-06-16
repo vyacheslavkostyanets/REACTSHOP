@@ -189,7 +189,8 @@ const initialState = {
 			price: '$50',
 			image: 'https://i.ibb.co/1m0sKRv/1.webp',
 			type: 'scrub', color: 'water'
-		}, {
+		},
+		{
 			id: 25,
 			name: 'Oil big Botlle',
 			desc: 'Oil for body 500ml',
@@ -200,40 +201,35 @@ const initialState = {
 	]
 }
 
-export const productFetch = createAsyncThunk("products/productFetch",
-	async () => {
-		const response = await axios.get("http://localhost:7000/products");
-		console.log(response, 'response?.data')
-		return response?.data
-	},
-)
+// export const productFetch = createAsyncThunk("products/productFetch",
+// 	async () => {
+// 		const response = await axios.get("http://localhost:7000/products");
+// 		console.log(response, 'response?.data')
+// 		return response?.data
+// 	},
+// )
 
 const productsSlice = createSlice({
 	name: 'products',
 	initialState,
 	reducers: {
-		increment: (state) => {
-			state.value += 1
-		},
-		decrement: (state) => {
-			state.value -= 1
-		},
-		incrementByAmount: (state, action) => {
-			state.value += action.payload
+		increment: (state, action) => {
+			state.dataServer[0].price = 10000
 		},
 	},
-	extraReducers: {
-		[productFetch.pending]: (state, action) => {
-			state.value.status = "pending"
-		},
-		[productFetch.fulfilled]: (state, action) => {
-			state.value.status = "success";
-			state.value.items = action.payload;
-		},
-		[productFetch.rejected]: (state, action) => {
-			state.value.status = "rejected"
-		},
-	},
+	// extraReducers: {
+	// 	[productFetch.pending]: (state, action) => {
+	// 		state.value.status = "pending"
+	// 	},
+	// 	[productFetch.fulfilled]: (state, action) => {
+	// 		state.value.status = "success";
+	// 		state.value.items = action.payload;
+	// 	},
+	// 	[productFetch.rejected]: (state, action) => {
+	// 		state.value.status = "rejected"
+	// 	},
+	// },
 })
 
 export default productsSlice.reducer
+export const { increment } = productsSlice.actions

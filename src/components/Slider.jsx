@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import ArrowLeftOutlinedIcon from "@mui/icons-material/ArrowLeftOutlined";
 import ArrowRightOutlinedIcon from "@mui/icons-material/ArrowRightOutlined";
 
@@ -36,14 +36,15 @@ export const Slider = () => {
     }
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      handleSlider("right");
-      console.log("1");
-    }, 2000);
+  useCallback(
+    useEffect(() => {
+      const interval = setInterval(() => {
+        handleSlider("right");
+      }, 2000);
 
-    return () => clearInterval(interval);
-  }, [slider]);
+      return () => clearInterval(interval);
+    }, [slider, handleSlider])
+  );
 
   return (
     <div className="wrapper">
